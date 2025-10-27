@@ -2,13 +2,14 @@ name: Keep Supabase Alive
 
 on:
   schedule:
-    - cron: "0 8 * * *"  # רץ כל יום ב-08:00 בבוקר (UTC)
-  workflow_dispatch:      # מאפשר להריץ ידנית
+    - cron: "0 8 * * *"  # ירוץ כל יום ב-08:00 בבוקר (UTC ≈ 10:00 בישראל)
+  workflow_dispatch:      # מאפשר הרצה ידנית
 
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Send keep-alive request
+      - name: Send keep-alive request to Supabase
         run: |
           curl -s https://haxlbxyqnuetontmikrg.supabase.co/rest/v1/
+
